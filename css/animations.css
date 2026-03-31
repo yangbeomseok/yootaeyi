@@ -1,0 +1,281 @@
+/* ================================================
+   ANIMATION KEYFRAMES & UTILITIES
+   유태이 배우 포트폴리오
+   ================================================ */
+
+/* ---- Initial States (GSAP will animate FROM these) ---- */
+.anim-fade {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.anim-slide {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+.anim-wipe {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.hero__name-line {
+    display: block;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.hero__photo {
+    opacity: 0;
+}
+
+/* ---- CSS Keyframe Animations ---- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* ---- Hover Glow Effect ---- */
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 5px rgba(196, 162, 101, 0.1); }
+    50% { box-shadow: 0 0 20px rgba(196, 162, 101, 0.15); }
+    100% { box-shadow: 0 0 5px rgba(196, 162, 101, 0.1); }
+}
+
+/* ---- Loading Screen (optional) ---- */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.page-loader--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.page-loader__text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent);
+    letter-spacing: 4px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ---- Nav Animation ---- */
+.nav {
+    animation: slideDown 0.8s ease forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+}
+
+/* ---- Featured Card Hover Effects ---- */
+.featured__card {
+    transition: transform 0.4s ease;
+}
+
+.featured__card:hover {
+    transform: translateY(-4px);
+}
+
+.featured__card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid transparent;
+    transition: border-color 0.4s ease;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.featured__card:hover::before {
+    border-color: rgba(196, 162, 101, 0.2);
+}
+
+/* ---- Filmography Item Transition ---- */
+.filmography__item {
+    transition: all 0.3s ease;
+}
+
+/* ---- Smooth Scroll Indicator ---- */
+@keyframes scrollBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(8px); }
+    60% { transform: translateY(4px); }
+}
+
+/* ---- Badge Subtle Glow ---- */
+.featured__card-badge {
+    transition: all 0.3s ease;
+}
+
+.featured__card:hover .featured__card-badge {
+    box-shadow: 0 0 12px rgba(196, 162, 101, 0.3);
+}
+
+/* ---- Mobile Menu Link Stagger (CSS fallback) ---- */
+.mobile-menu__list li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.mobile-menu--active .mobile-menu__list li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu--active .mobile-menu__list li:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu--active .mobile-menu__list li:nth-child(2) { transition-delay: 0.2s; }
+.mobile-menu--active .mobile-menu__list li:nth-child(3) { transition-delay: 0.3s; }
+
+.mobile-menu__contact {
+    opacity: 0;
+    transition: opacity 0.4s ease 0.4s;
+}
+
+.mobile-menu--active .mobile-menu__contact {
+    opacity: 1;
+}
+
+/* ---- Text Clip Reveal ---- */
+.anim-clip-reveal {
+    clip-path: inset(100% 0 0 0);
+}
+
+/* ---- Image Curtain Reveal ---- */
+.anim-curtain {
+    position: relative;
+    overflow: hidden;
+    --curtain: 100%;
+    --curtain-out: 0%;
+}
+
+.anim-curtain::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--curtain-out);
+    right: var(--curtain);
+    background: var(--accent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ---- Divider Expand ---- */
+.anim-divider {
+    position: relative;
+    --divider-width: 0%;
+    border-bottom: none !important;
+}
+
+.anim-divider::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: var(--divider-width);
+    height: 1px;
+    background: var(--accent);
+    transform: translateX(-50%);
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+    .anim-fade,
+    .anim-slide,
+    .anim-wipe,
+    .anim-clip-reveal,
+    .hero__name-line,
+    .hero__photo {
+        opacity: 1;
+        transform: none;
+        clip-path: none;
+    }
+
+    .anim-curtain::before {
+        display: none;
+    }
+
+    .anim-divider::after {
+        width: 100%;
+        left: 0;
+        transform: none;
+    }
+
+    .nav {
+        opacity: 1;
+        animation: none;
+    }
+
+    .featured__card:hover {
+        transform: none;
+    }
+
+    .mobile-menu__list li {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .mobile-menu__contact {
+        opacity: 1;
+        transition: none;
+    }
+}
