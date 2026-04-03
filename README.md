@@ -1,6 +1,6 @@
 # 유태이 | Yoo Tae Yi — Actor Portfolio
 
-배우 유태이의 포트폴리오 웹사이트입니다.
+유태이 배우의 포트폴리오 웹사이트입니다.
 
 **Live**: [yangbeomseok.github.io/yoo-tae-yi](https://yangbeomseok.github.io/yoo-tae-yi/)
 
