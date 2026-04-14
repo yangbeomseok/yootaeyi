@@ -2,7 +2,7 @@
 
 유태이 배우의 포트폴리오 웹사이트입니다.
 
-**Live**: [yangbeomseok.github.io/yoo-tae-yi](https://yangbeomseok.github.io/yoo-tae-yi/)
+**Live**: [yangbeomseok.github.io/yoo-tae-yi](https://yangbeomseok.github.io/yootaeyi/)
 
 ## 주요 기능
 
